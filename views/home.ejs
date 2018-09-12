@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--         <script type = "text/javascript">
+        function deleteRow(btn) 
+        {
+            if (confirm("Are you sure want to delete the row?"))
+            {
+                $(btn).closest("tr").remove();
+                console.log("Removed")
+            }
+            
+        }
+        </script> -->
+    </head>
+    <body>
+<!--         <div class="container">
+            <h3>User Report</h3>
+            <ul class="nav nav-pills">
+                <li><a href="/create">Add Student</a></li>
+                <li><a href="/delete">Delete Student</a></li>
+                <li class="active"><a href="/home">List All Students</a></li>
+            </ul>
+        </div> -->
+        <div class="container">
+            <h2>User Report</h2>
+            
+            <table id="table" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Student ID</th>
+                        <th>Department</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(function(student){ %>
+                        <tr>
+                            <td><%= student.Name %></td>
+                            <td><%= student.StudentID %></td>
+                            <td><%= student.Department %></td>
+                            <!-- <td><input type="button" value="Delete" id="del"></td> -->
+                          <!--   <td><button onclick="deleteRow(this,'<%= student.StudentID %>')">Delete</button> </td>-->
+                            <!-- <form action="/delete/<%= student.StudentID %>" method="POST"> -->
+                            <!-- <td><button  class="btn btn-danger" >Delete</button></td> -->
+                            <td><a href="/delete/<%= student.StudentID %>" class="btn btn-danger">Delete</a></td>
+                           <!--  </form> -->
+                        </tr>
+                        
+                    <%  }); %>
+                </tbody>
+            </table>
+        </div>   
+    </body>
+</html>
